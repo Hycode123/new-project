@@ -1,0 +1,221 @@
+body {
+    background-color: #121212;
+    font-family: 'Nunito Sans', sans-serif;
+    color: #fff;
+    margin: 0;
+}
+.header {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #6a1b9a, #4a148c);
+    color: #fff;
+}
+.header img {
+    width: 100px;
+    border-radius: 20%;
+}
+.header h1 {
+    margin: 10px 0;
+}
+.main-container, .dashboard-container, .profile-container, .promotion-container {
+    padding: 20px;
+    display: none;
+}
+.main-container.active, .dashboard-container.active, .profile-container.active, .promotion-container.active {
+    display: block;
+}
+.card {
+    background: #1f1b2c;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+.form-control {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #333;
+    background: #2a2a2a;
+    color: #fff;
+}
+.btn-primary, .btn-secondary {
+    background: #6a1b9a;
+    border: none;
+    padding: 10px 15px;
+    color: #fff;
+    border-radius: 5px;
+}
+.btn-primary:hover, .btn-secondary:hover {
+    background: #8e24aa;
+}
+.tab-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #1f1b2c;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
+}
+.tab-bar .tab {
+    text-align: center;
+    color: #cfcfcf;
+    font-size: 0.8rem;
+}
+.tab-bar .tab i {
+    font-size: 1.5rem;
+    color: #a76fff;
+}
+.tab-bar .tab.active i {
+    color: #6a1b9a;
+}
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: #1f1b2c;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+}
+.modal-content h4 {
+    color: #a76fff;
+    margin-bottom: 10px;
+}
+.modal-content .btn {
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.btn-yes {
+    background: #ff5252;
+}
+.btn-yes:hover {
+    background: #ff1744;
+}
+.btn-no {
+    background: #6a1b9a;
+}
+.btn-no:hover {
+    background: #8e24aa;
+}
+/* Help Contact Styling */
+.help-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.help-contact a {
+    color: #a76fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+.help-contact a:hover {
+    color: #ff5252;
+}
+.help-contact i {
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+.earnings-box {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.earnings-box h3 {
+    color: #a76fff;
+    margin-bottom: 10px;
+}
+.tasks-box {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.tasks-box h4 {
+    color: #ff5252;
+}
+.task-item {
+    display: incline-block;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #333;
+    border-radius: 5px;
+}
+.task-item button {
+    background:rgb(54, 5, 85);
+    border: 20px;
+    padding: 5px 10px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+ .task-item button:hover {
+    background: #8e24aa;
+}
+/* Help Contact Styling */
+.withdrawal button {
+    background-color: #6a1b9a; /* Primary background color */
+    color: #fff; /* Text color */
+    padding: 12px 20px; /* Padding for better spacing */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and transform */
+    display: inline-block; /* Aligns the button correctly */
+    margin-top: 20px; /* Space above the button */
+}
+.withdrawal button:hover {
+    background-color: #8e24aa; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect on hover */
+}
+.withdrawal button:focus {
+    outline: none; /* Remove outline on focus */
+    box-shadow: 0 0 5px rgba(106, 27, 154, 0.5); /* Add shadow effect on focus */
+}
+/* Promotion Container */
+.promotion-container {
+    display: none;
+}
+.promotion-container.active {
+    display: block;
+}
+.promotion-container-content {
+    background: #1f1b2c;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #fff;
+}
+.promotion-container-content input {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #333;
+    background: #2a2a2a;
+    color: #fff;
+}
