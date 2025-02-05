@@ -1,67 +1,79 @@
 
+
+
 let userEmail = ""; // Store the email dynamically
         let bankDetails = null; // Store the bank details dynamically
         let promotionLinkGenerated = false; // Track if the promotion link has been generated
         let promotionLink = ""; // Store the generated link
-
+        function registerUser(event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('register-username').value;
+            const email = document.getElementById('register-email').value;
+            const phone = document.getElementById('register-phone').value;
+            const password = document.getElementById('register-password').value;
+            
+            // Check if all fields are filled
+            if (username && email && phone && password) {
+                const registeredUser = { username, email, phone, password };
+        
+                // Retrieve existing users from localStorage (if any)
+                let users = JSON.parse(localStorage.getItem("registeredUsers")) || [];
+        
+                // Check if email is already registered
+        //  const userExists = users.some(user => user.email === email);
+        // if (userExists) {
+        //    showNotification("Email is already registered. Please log in.");
+        //     return;
+        // }
+                // Add the new user to the list
+                users.push(registeredUser);
+        
+                // Store the updated list of users back into localStorage
+                localStorage.setItem("registeredUsers", JSON.stringify(users));
+        
+                showNotification("Registration successful! Redirecting to login...");
+        
+                // Redirect to the login page after 2 seconds
+                setTimeout(() => {
+                    window.location.href = "login.html"; // Redirect to the login page
+                }, 2000);
+            } else {
+                showNotification("Please fill in all fields.");
+            }
+        }   
         function validateLogin(event) {
     event.preventDefault();
-    const username = document.getElementById('login-username').value;
-    const password = document.getElementById('login-password').value;
 
-    // List of valid credentials
-    const validUsers = [
-        { username: "saduwa@gmail.com", password: "isaac" },
-        { username: "mcashshare1@gmail.com", password: "mcashshare111" },
-        { username: "mcashshare2@gmail.com", password: "mcashshare112" },
-        { username: "mcashshare3@gmail.com", password: "mcashshare113" },
-        { username: "mcashshare4@gmail.com", password: "mcashshare114" },
-        { username: "mcashshare5@gmail.com", password: "mcashshare115" },
-    ];
+    const username = document.getElementById('login-username').value.trim();
+    const password = document.getElementById('login-password').value.trim();
 
-    // Check if the entered credentials match any of the valid ones
-    const isValid = validUsers.some(
-        user => user.username === username && user.password === password
-    );
+    // Retrieve stored user from localStorage
+    const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
 
-    if (isValid) {
-        const header = document.querySelector('.header h1');
-        header.textContent = "WELCOME TO MCASH - CLICK & EARN";
-
-        // Switch to dashboard interface
-        document.querySelector('.main-container').classList.remove('active');
-        document.querySelector('.dashboard-container').classList.add('active');
-        showNotification("Sign in successful!");
-    } else {
-        showNotification("Account not yet verified! Please contact the help desk.");
+    if (storedUser && username === storedUser.email && password === storedUser.password) {
+        showNotification("Login successful! Redirecting to dashboard...");     
+        setTimeout(() => {       
+           window.location.href = "dashboard.html"; 
+        }, 1000);
+    } else {   
+        showNotification("Invalid credentials. Please try again.");
     }
-}
+   }
+   function goToPromotion() {
+    window.location.href = "promotion.html";
+// Add event listener to the icon
+document.getElementById('promotion-icon').addEventListener('click', goToPromotion);
+   }
 
 
-        function switchToDashboard() {
-            document.querySelector('.profile-container').classList.remove('active');
-            document.querySelector('.promotion-container').classList.remove('active');
-            document.querySelector('.dashboard-container').classList.add('active');
-        }
+const gmail = localStorage.getItem('email');
+document.getElementById('profile-email').innerHTML = gmail;
+// const result = document.getElementById('profile-email');
+// if (gmail) {
+//   result.textContent =`${gmail}`;
+// } 
 
-        function switchToProfile() {
-            document.querySelector('.dashboard-container').classList.remove('active');
-            document.querySelector('.promotion-container').classList.remove('active');
-            document.querySelector('.profile-container').classList.add('active');
-            // Display user email in the profile
-            document.getElementById('profile-email').textContent = userEmail;
-            // Show bank details if available
-            if (bankDetails) {
-                document.getElementById('bank-name-display').textContent = bankDetails.name;
-                document.getElementById('bank-account-number-display').textContent = bankDetails.accountNumber;
-                document.getElementById('bank-holder-name-display').textContent = bankDetails.holderName;
-                document.getElementById('bank-details-form').style.display = 'none';
-                document.getElementById('update-bank-details').style.display = 'block';
-            } else {
-                document.getElementById('bank-details-form').style.display = 'block';
-                document.getElementById('update-bank-details').style.display = 'none';
-            }
-        }
  function updateEmail() {
             const newEmail = prompt("Enter your new email address:");
             if (newEmail) {
@@ -78,7 +90,10 @@ let userEmail = ""; // Store the email dynamically
             if (bankName && accountNumber && holderName) {
                 bankDetails = { name: bankName, accountNumber: accountNumber, holderName: holderName };
                 showNotification("Bank details saved successfully!");
-                switchToProfile(); // Switch to profile to display bank details
+                document.getElementById('bank-name-display').textContent = bankName;
+                document.getElementById('bank-account-number-display').textContent = accountNumber;
+                document.getElementById('bank-holder-name-display').textContent = holderName;
+                 // Switch to profile to display bank details
             } else {
                 showNotification("Please fill in all fields.");
             }
@@ -87,27 +102,64 @@ let userEmail = ""; // Store the email dynamically
         function updateBankDetails() {
             document.getElementById('bank-details-form').style.display = 'block';
             document.getElementById('update-bank-details').style.display = 'none';
-        }
-        function showPromotion() {
-            if (!promotionLinkGenerated) {
-                promotionLink = generatePromotionLink();
-                promotionLinkGenerated = true; // Set the flag to true
+        }// Function to generate a random promotion link
+function generatePromotionLink() {
+    return "https://mcashshare.com/promo/" + Math.random().toString(36).slice(2, 11); 
+}
+
+// Function to set the generated link in the input field
+function setPromotionLink() {
+    const linkInput = document.getElementById('promotion-link');
+    if (linkInput) {
+        linkInput.value = generatePromotionLink();
+    } else {
+        console.error("Element with ID 'promotion-link' not found.");
+    }
+}
+
+// Function to copy the link to the clipboard
+function copyToClipboard() {
+    const linkInput = document.getElementById('promotion-link');
+
+    if (!linkInput) {
+        console.error("Element with ID 'promotion-link' not found.");
+        showNotification("Error: Promotion link field not found.");
+        return;
+    }
+
+    // Use Clipboard API if available
+    if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(linkInput.value)
+            .then(() => {
+                showNotification("Promotion link copied to clipboard!");
+            })
+            .catch(err => {
+                console.error("Failed to copy text:", err);
+                showNotification("Failed to copy link. Please copy manually.");
+            });
+    } else {
+        // Fallback method using execCommand (deprecated)
+        linkInput.select();
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                showNotification("Promotion link copied to clipboard!");
+            } else {
+                showNotification("Failed to copy. Please copy manually.");
             }
-            document.getElementById('promotion-link').value = promotionLink; // Set the link in the input
-            document.querySelector('.dashboard-container').classList.remove('active');
-            document.querySelector('.promotion-container').classList.add('active'); // Show the promotion container
+        } catch (err) {
+            console.error("execCommand failed:", err);
+            showNotification("Copying not supported in this browser.");
         }
+    }
+}
 
-        function generatePromotionLink() {
-            return "https://mcashshare.com/promo/" + Math.random().toString(36).substr(2, 9); // Example link generation
-        }
+// Ensure the promotion link is generated automatically when the page loads
+document.addEventListener("DOMContentLoaded", setPromotionLink);
 
-        function copyToClipboard() {
-            const linkInput = document.getElementById('promotion-link');
-            linkInput.select();
-            document.execCommand('copy');
-            showNotification("Promotion link copied to clipboard!");
-        }
+
+
+
 
         function showNotification(message) {
             const notification = document.createElement('div');
@@ -208,8 +260,11 @@ let userEmail = ""; // Store the email dynamically
             // Clear user data and redirect to login
             userEmail = "";
             bankDetails = null;
-            document.querySelector('.profile-container').classList.remove('active');
-            document.querySelector('.main-container').classList.add('active');
+            // document.querySelector('.profile-container').classList.remove('active');
+            // document.querySelector('.main-container').classList.add('active');
+            setTimeout(() => {
+                window.location.href = "login.html"; // Redirect to the login page
+            }, 2000);
             hideLogoutModal();
             showNotification("You have been logged out. Please sign in again.");
         }

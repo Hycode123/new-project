@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer> </script>
+</head>
+<body>
+     <!-- Header -->
+     <div class="header">
+        <img src="logo.jpg" alt="MCash Logo">
+        <h1>-Earning Task</h1>
+    </div>
+
+<div class="profile-container">
+    <div class="card">
+        <h3>Profile</h3>
+        <p><strong>Email:</strong> <span id="profile-email">weccc</span></p>
+        <button class="btn-secondary" onclick="updateEmail()">Update Email</button>
+        <!-- Bank Details Form -->
+        <div id="bank-details-form">
+            <h4>Bank Details</h4>
+            <input type="text" id="bank-name" class="form-control" placeholder="Bank Name">
+            <input type="text" id="account-number" class="form-control" placeholder="Account Number">
+            <input type="text" id="holder-name" class="form-control" placeholder="Account Holder's Name">
+            <button class="btn-primary" onclick="saveBankDetails()">Save Bank Details</button>
+        </div>
+    
+        <!-- Bank Details Display -->
+        <div id="bank-details-display" style="display: show;">
+            <p><strong>Bank Name:</strong> <span id="bank-name-display"></span></p>
+            <p><strong>Account Number:</strong> <span id="bank-account-number-display"></span></p>
+            <p><strong>Account Holder's Name:</strong> <span id="bank-holder-name-display"></span></p>
+            <button class="btn-secondary" id="update-bank-details" onclick="updateBankDetails()" style="display: none;">Update Bank Details</button>
+        </div>
+        <button class="btn-secondary" onclick="switchToDashboard()">Back</button>
+        <button class="btn-primary" onclick="showLogoutModal()">Log Out</button>
+    </div>
+</div>
+<!-- Logout Confirmation Modal -->
+<div class="modal">
+    <div class="modal-content">
+        <h4>ARE YOU SURE YOU WANT TO LOG OUT OF MCASH?</h4>
+        <button class="btn btn-yes" onclick="logout()">Yes</button>
+        <button class="btn btn-no" onclick="hideLogoutModal()">No</button>
+    </div>
+    
+</div>
+<p class="help-contact">
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mcashshare@gmail.com" target="_blank">
+
+        <i class="fas fa-headset"></i>
+        <strong>Contact Help Desk</strong>
+    </a>
+</p>
+<div class="tab-bar">
+    <a class="tab" href="promotion.html">
+        <i class="fas fa-bullhorn" id="promotion-icon"></i>
+        <p>Promotion</p>
+    </a>
+    <a class="tab active" href="dashboard.html">
+        <i class="fas fa-home"></i>
+        <p>Home</p>
+    </a>
+    <a class="tab" href="profile.html" >
+        <i class="fas fa-user"></i>
+        <p>Me</p>
+    </a>
+</div>
+</body>
+</html>

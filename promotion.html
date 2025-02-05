@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <title>WAY_Out</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer> </script>
+</head>
+<body>
+    <div class="header">
+        <img src="logo.jpg" alt="MCash Logo">
+        <h1>-Earning Task</h1>
+    </div>
+
+     <!-- Promotion Interface -->
+     <div class="promotion-container">
+        <div class="promotion-container-content">
+            <h4><strong>Referral Code:</strong></h4>
+            <input type="text" id="promotion-link" readonly>
+            <button class="btn-primary" onclick="copyToClipboard()">Copy Link</button>
+            <h4><strong><p style="text-align: left;">Invitation Steps:</strong></h4><p style="text-align: left;">
+
+1. Click the "Copy" button to copy the link or choose other sharing methods.<br>
+
+2. Share the link with your friends and make sure they register using the link you shared.<br>
+
+3. After your friends register and complete the task, you will receive additional rebates.</p>
+            
+        </div>
+        <div class="tab-bar">
+            <a class="tab" href="promotion.html">
+                <i class="fas fa-bullhorn" id="promotion-icon"></i>
+                <p>Promotion</p>
+            </a>
+            <a class="tab active" href="dashboard.html">
+                <i class="fas fa-home"></i>
+                <p>Home</p>
+            </a>
+            <a class="tab" href="profile.html" >
+                <i class="fas fa-user"></i>
+                <p>Me</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

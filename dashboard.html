@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer> </script>
+</head>
+<body>
+     <!-- Header -->
+     <div class="header">
+        <img src="logo.jpg" alt="MCash Logo">
+        <h1>-Earning Task</h1>
+    </div>
+
+     <!-- Dashboard Interface -->
+     <div class="dashboard-container">
+        <div class="card">
+            <h3><left >Welcome to MCash Dashboard</left ></h3>
+             <h3><left>Once you Sign in, it is very importantsnot to log out from the website<br>else you will might lose all your asset.<br>don't share your login with anyone.</left></h3>
+
+        </div>
+        <div class="earnings-box">
+            <h3 style="text-align: left;">Total Earnings</h3>
+            <h1><p id="total-earnings" style="text-align: left;">NGN
+0.00</p></h1>
+           
+            
+ <div class="withdrawal">
+        <div class="withdrawal-modal-content">
+            <h4>Select Withdrawal Amount:</h4>
+            <button onclick="confirmWithdrawal(1000)"> NGN
+1000</button>
+            <button onclick="confirmWithdrawal(5000)"> NGN
+5000</button>
+            <button onclick="confirmWithdrawal(10000)"> NGN
+10000</button>
+            <button onclick="confirmWithdrawal(50000)"> NGN
+50000</button>
+            <button onclick="confirmWithdrawal(100000)"> NGN
+100000</button>
+            <button onclick="showWithdrawalModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
+             <div>
+  <left> <h1>Withdrawal Instructions:</h1> </left>
+<h4>Minimum withdrawal amount is NGN
+1000
+<br>Maximum withdrawal amount is NGN
+10000000</h4>
+<h4>You can only withdraw cash 1 times a day.<br> Please check carefully whether the information is entered correctly.<br>If the withdrawal is not received, please contact customer service</h4></left>
+</div>
+        <div class="tasks-box">
+            <h4>Perform Tasks to Earn</h4>
+            <h3>Section 1:</h3>
+            <div class="task-item"
+                <span><strong>Watch a Video:</strong></span><p>To perform this task, click on the  accept button below to watch a video and earn NGN
+50</p>
+                <button onclick="completeTask(50)">Accept</button>
+                <button onclick="imcompleteTask(0)">Cancel</button>
+            </div>
+            <div class="task-item">
+                <span><strong>Share a Post:</strong></span><p>To perform this task, click on the  accept button below to Share a Post and earn NGN
+30</p>
+                <button onclick="completeTask(30)">Accept</button>
+                <button onclick="imcompleteTask(0)">Cancel</button>
+            </div>
+            <div class="task-item">
+                <span><strong>Complete a Survey:<strong></span><p>To perform this task, click on the  accept button below to Complete a Survey and earn NGN
+10</p>
+                <button onclick="completeTask(10)" >Accept</button>
+                <button onclick="imcompleteTask(0)">Cancel</button>
+            </div>
+            <h3>Section 2:</h3>
+             <div class="task-item">
+                <span><strong>Watch a Video:</strong></span><p>To perform this task, click on the  accept button below to watch a video and earn NGN 100 </p>
+
+                <button onclick="completeTask(100)">Accept</button>
+                <button onclick="imcompleteTask(0)">Cancel</button>
+            </div>
+            <div class="task-item">
+                <span><strong>Share a Post:</strong></span><p>To perform this task, click on the  accept button below to Share a Post and earn NGN
+30</p>
+                <button onclick="completeTask(30)">Accept</button>
+                <button onclick="imcompleteTask(0)">Cancel</button>
+            </div>
+            <div class="task-item">
+                <span><strong>Complete a Survey:<strong></span><p>To perform this task, click on the  accept button below to Complete a Survey and earn NGN
+10</p>
+                <button onclick="completeTask(10)" >Accept</button>
+                <button onclick="imcompleteTask(0)">Cancel</button>
+            </div>
+        </div>
+        <div class="tab-bar">
+            <a class="tab" href="promotion.html">
+                <i class="fas fa-bullhorn" id="promotion-icon"></i>
+                <p>Promotion</p>
+            </a>
+            <a class="tab active" href="dashboard.html">
+                <i class="fas fa-home"></i>
+                <p>Home</p>
+            </a>
+            <a class="tab" href="profile.html" >
+                <i class="fas fa-user"></i>
+                <p>Me</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

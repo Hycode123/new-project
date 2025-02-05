@@ -17,11 +17,11 @@ body {
 .header h1 {
     margin: 10px 0;
 }
-.main-container, .dashboard-container, .profile-container, .promotion-container {
+.registration-container {
     padding: 20px;
     display: none;
 }
-.main-container.active, .dashboard-container.active, .profile-container.active, .promotion-container.active {
+.registration-container.active,.main-container.active, .dashboard-container.active, .profile-container.active, .promotion-container.active {
     display: block;
 }
 .card {
@@ -35,6 +35,7 @@ body {
     display: flex;
     flex-direction: column;
     
+    
 }
 .form-control {
     width: 80%;
@@ -42,10 +43,6 @@ body {
     margin-bottom: 15px;
     border: 1px solid #333;
     background: #2a2a2a;
-    color: #fff;
-}
-.btn-primary, .btn-secondary {
-    background: #6a1b9a;
     border: none;
     padding: 10px 15px;
     color: #fff;
@@ -66,6 +63,10 @@ body {
     align-items: center;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.5);
 }
+/* .tab-bar .tab > p{
+    text-decoration: none;
+    color:#cfcfcf; ;
+} */
 .tab-bar .tab {
     text-align: center;
     color: #cfcfcf;
@@ -74,6 +75,10 @@ body {
 .tab-bar .tab i {
     font-size: 1.5rem;
     color: #a76fff;
+}
+.tab-bar .tab i:hover {
+    
+    color: #6a1b9a;
 }
 .tab-bar .tab.active i {
     color: #6a1b9a;
@@ -182,6 +187,18 @@ body {
  .task-item button:hover {
     background: #8e24aa;
 }
+button {
+    background-color: #6a1b9a; /* Primary background color */
+    color: #fff; /* Text color */
+    padding: 12px 20px; /* Padding for better spacing */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background and transform */
+    display: inline-block; /* Aligns the button correctly */
+    margin-top: 20px; /* Space above the button */
+}
 /* Help Contact Styling */
 .withdrawal button {
     background-color: #6a1b9a; /* Primary background color */
@@ -204,9 +221,9 @@ body {
     box-shadow: 0 0 5px rgba(106, 27, 154, 0.5); /* Add shadow effect on focus */
 }
 /* Promotion Container */
-.promotion-container {
+/* .promotion-container {
     display: none;
-}
+} */
 .promotion-container.active {
     display: block;
 }
@@ -224,4 +241,12 @@ body {
     border: 1px solid #333;
     background: #2a2a2a;
     color: #fff;
+}
+
+@media all and (max-width: 768px) {
+    
+.card{
+    margin-left: 0px;
+    
+}
 }

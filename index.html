@@ -5,197 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <title>Document</title>
+<link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <title>WAY_Out</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer> </script>
 </head>
 <body>
      <!-- Header -->
      <div class="header">
-        <img src="c:\Users\HP\Documents\Mcash\Mash.png" alt="MCash Logo">
+        <img src="logo.jpg" alt="MCash Logo">
         <h1>-Earning Task</h1>
     </div>
+   <!-- Registration interface -->
+   <div class="registration-container active" id="registration-container">
+    <div class="card">
+        <h3>Create an Account</h3>
+        <form onsubmit="registerUser(event)">
+            <input type="text" id="register-username" class="form-control" placeholder="Username" required>
+            <input type="email" id="register-email" class="form-control" placeholder="Email" required>
+            <input type="tel" id="register-phone" class="form-control" placeholder="Phone Number" required>
+            <input type="password" id="register-password" class="form-control" placeholder="Password" required>
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Sign In</a></p>
+    </div>
+</div>
     <!-- Login Interface -->
-    <div class="main-container active">
-        <div class="card">
-            <h3>Account Login</h3>
-            <form onsubmit="validateLogin(event)">
-                <input type="text" id="login-username" class="form-control" placeholder="User-Id, Email or Phone">
-                <input type="password" id="login-password" class="form-control" placeholder="Password">
-                <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-            </form>
-            
-            <h5>Note: Mcash is a platform which allows earners earn NGN 20,000 weekly.
-            <br>if you haven't verified your account click on the HELP DESK button to contact our personnel.</h5>
-        </div>
-    </div>
+    
     <!-- Dashboard Interface -->
-    <div class="dashboard-container">
-        <div class="card">
-            <h3><left >Welcome to MCash Dashboard</left ></h3>
-             <h3><left>Once you Sign in, it is very importantsnot to log out from the website<br>else you will might lose all your asset.<br>don't share your login with anyone.</left></h3>
-
-        </div>
-        <div class="earnings-box">
-            <h3 style="text-align: left;">Total Earnings</h3>
-            <h1><p id="total-earnings" style="text-align: left;">NGN
-0.00</p></h1>
-           
-            
- <div class="withdrawal">
-        <div class="withdrawal-modal-content">
-            <h4>Select Withdrawal Amount:</h4>
-            <button onclick="confirmWithdrawal(1000)"> NGN
-1000</button>
-            <button onclick="confirmWithdrawal(5000)"> NGN
-5000</button>
-            <button onclick="confirmWithdrawal(10000)"> NGN
-10000</button>
-            <button onclick="confirmWithdrawal(50000)"> NGN
-50000</button>
-            <button onclick="confirmWithdrawal(100000)"> NGN
-100000</button>
-            <button onclick="showWithdrawalModal()">Cancel</button>
-        </div>
-    </div>
-</div>
-
-             <div>
-  <left> <h1>Withdrawal Instructions:</h1> </left>
-<h4>Minimum withdrawal amount is NGN
-1000
-<br>Maximum withdrawal amount is NGN
-10000000</h4>
-<h4>You can only withdraw cash 1 times a day.<br> Please check carefully whether the information is entered correctly.<br>If the withdrawal is not received, please contact customer service</h4></left>
-</div>
-        <div class="tasks-box">
-            <h4>Perform Tasks to Earn</h4>
-            <h3>Section 1:</h3>
-            <div class="task-item"
-                <span><strong>Watch a Video:</strong></span><p>To perform this task, click on the  accept button below to watch a video and earn NGN
-50</p>
-                <button onclick="completeTask(50)">Accept</button>
-                <button onclick="imcompleteTask(0)">Cancel</button>
-            </div>
-            <div class="task-item">
-                <span><strong>Share a Post:</strong></span><p>To perform this task, click on the  accept button below to Share a Post and earn NGN
-30</p>
-                <button onclick="completeTask(30)">Accept</button>
-                <button onclick="imcompleteTask(0)">Cancel</button>
-            </div>
-            <div class="task-item">
-                <span><strong>Complete a Survey:<strong></span><p>To perform this task, click on the  accept button below to Complete a Survey and earn NGN
-10</p>
-                <button onclick="completeTask(10)" >Accept</button>
-                <button onclick="imcompleteTask(0)">Cancel</button>
-            </div>
-            <h3>Section 2:</h3>
-             <div class="task-item">
-                <span><strong>Watch a Video:</strong></span><p>To perform this task, click on the  accept button below to watch a video and earn NGN 100 </p>
-
-                <button onclick="completeTask(100)">Accept</button>
-                <button onclick="imcompleteTask(0)">Cancel</button>
-            </div>
-            <div class="task-item">
-                <span><strong>Share a Post:</strong></span><p>To perform this task, click on the  accept button below to Share a Post and earn NGN
-30</p>
-                <button onclick="completeTask(30)">Accept</button>
-                <button onclick="imcompleteTask(0)">Cancel</button>
-            </div>
-            <div class="task-item">
-                <span><strong>Complete a Survey:<strong></span><p>To perform this task, click on the  accept button below to Complete a Survey and earn NGN
-10</p>
-                <button onclick="completeTask(10)" >Accept</button>
-                <button onclick="imcompleteTask(0)">Cancel</button>
-            </div>
-        </div>
-        <div class="tab-bar">
-            <div class="tab" onclick="showPromotion()">
-                <i class="fas fa-bullhorn"></i>
-                <p>Promotion</p>
-            </div>
-            <div class="tab active">
-                <i class="fas fa-home"></i>
-                <p>Home</p>
-            </div>
-            <div class="tab" onclick="switchToProfile()">
-                <i class="fas fa-user"></i>
-                <p>Me</p>
-            </div>
-        </div>
-    </div>
+   
     <!-- Promotion Interface -->
-    <div class="promotion-container">
-        <div class="promotion-container-content">
-            <h4><strong>Referral Code:</strong></h4>
-            <input type="text" id="promotion-link" readonly>
-            <button class="btn-primary" onclick="copyToClipboard()">Copy Link</button>
-            <h4><strong><p style="text-align: left;">Invitation Steps:</strong></h4><p style="text-align: left;">
-
-1. Click the "Copy" button to copy the link or choose other sharing methods.<br>
-
-2. Share the link with your friends and make sure they register using the link you shared.<br>
-
-3. After your friends register and complete the task, you will receive additional rebates.</p>
-            
-        </div>
-        <div class="tab-bar">
-            <div class="tab" onclick="showPromotion()">
-                <i class="fas fa-bullhorn"></i>
-                <p>Promotion</p>
-            </div>
-            <div class="tab" onclick="switchToDashboard()">
-                <i class="fas fa-home"></i>
-                <p>Home</p>
-            </div>
-            <div class="tab" onclick="switchToProfile()">
-                <i class="fas fa-user"></i>
-                <p>Me</p>
-            </div>
-        </div>
-    </div>
+    
     <!-- Profile Interface -->
-    <div class="profile-container">
-        <div class="card">
-            <h3>Profile</h3>
-            <p><strong>Email:</strong> <span id="profile-email"></span></p>
-            <button class="btn-secondary" onclick="updateEmail()">Update Email</button>
+    <!--  -->
             <!-- Bank Details Form -->
-            <div id="bank-details-form">
-                <h4>Bank Details</h4>
-                <input type="text" id="bank-name" class="form-control" placeholder="Bank Name">
-                <input type="text" id="account-number" class="form-control" placeholder="Account Number">
-                <input type="text" id="holder-name" class="form-control" placeholder="Account Holder's Name">
-                <button class="btn-primary" onclick="saveBankDetails()">Save Bank Details</button>
-            </div>
+            
         
             <!-- Bank Details Display -->
-            <div id="bank-details-display" style="display: show;">
-                <p><strong>Bank Name:</strong> <span id="bank-name-display"></span></p>
-                <p><strong>Account Number:</strong> <span id="bank-account-number-display"></span></p>
-                <p><strong>Account Holder's Name:</strong> <span id="bank-holder-name-display"></span></p>
-                <button class="btn-secondary" id="update-bank-details" onclick="updateBankDetails()" style="display: none;">Update Bank Details</button>
-            </div>
-            <button class="btn-secondary" onclick="switchToDashboard()">Back</button>
-            <button class="btn-primary" onclick="showLogoutModal()">Log Out</button>
-        </div>
-    </div>
+           
     <!-- Logout Confirmation Modal -->
-    <div class="modal">
-        <div class="modal-content">
-            <h4>ARE YOU SURE YOU WANT TO LOG OUT OF MCASH?</h4>
-            <button class="btn btn-yes" onclick="logout()">Yes</button>
-            <button class="btn btn-no" onclick="hideLogoutModal()">No</button>
-        </div>
-        
-    </div>
-    <p class="help-contact">
-        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mcashshare@gmail.com" target="_blank">
-
-            <i class="fas fa-headset"></i>
-            <strong>Contact Help Desk</strong>
-        </a>
-    </p>
+    
 </body>
 </html>

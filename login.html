@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,600,700">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <title>WAY_Out</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer> </script>
+</head>
+<body>
+ <!-- Header -->
+ <div class="header">
+    <img src="logo.jpg" alt="MCash Logo">
+    <h1>-Earning Task</h1>
+</div>
+
+    <div class="main-container ">
+        <div class="card">
+            <h3>Account Login</h3>
+            <form onsubmit="validateLogin(event)">
+                <input type="text" id="login-username" class="form-control" placeholder="User-Id, Email or Phone">
+                <input type="password" id="login-password" class="form-control" placeholder="Password">
+                <button type="submit" class="btn btn-primary btn-block" onclick="validateLogin(event)">Sign In</button>
+            </form>
+            <p>Don't have an account? <a href="index.html">Register</a></p>
+            <h5>Note: Mcash is a platform which allows earners earn NGN 20,000 weekly.
+            <br>if you haven't verified your account click on the HELP DESK button to contact our personnel.</h5>
+        </div>
+    </div>
+</body>
+</html>
